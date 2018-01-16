@@ -1,0 +1,58 @@
+<%= form_for @event do |f| %>
+  <div class="form-group">
+    <label>Name</label>
+    <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Location</label>
+    <%= f.select :location, [["Amsterdam","Amsterdam"], ["Rotterdam", "Rotterdam"], ["The Hague", "The Hague"]], prompt: "Select location", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <div class="input-group">
+      <div class="input-group-addon">€</div>
+      <%= f.number_field :price, placeholder: "eg. 10", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Capacity</label>
+    <div class="input-group">
+      <%= f.number_field :capacity, placeholder: "eg. 100", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.check_box :includes_food %> Includes Food
+  </div>
+  <div class="form-group">
+    <%= f.check_box :includes_drinks %> Includes Drinks
+  </div>
+
+  <div class="form-group">
+    <label>Start Date</label>
+    <%=  f.date_select :starts_at, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>End Date</label>
+    <%=  f.date_select :ends_at, class: "form-control" %>
+  </div>
+
+  <label>Publish this place?</label>
+
+  <div class="form-group">
+    <%= f.check_box :active %> Active
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
