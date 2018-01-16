@@ -1,10 +1,20 @@
 class Event < ApplicationRecord
 #  include "comparable"
   belongs_to :user
+  has_and_belongs_to_many :categories
 
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 500 }
   validates :starts_at, :ends_at, presence: true
+  # validates :ends_at_cannot_be_in_the_pas
+  #
+  # private
+  #
+  # def ends_at_cannot_be_in_the_pas
+  #   if ends_at.present? && ends_at < starts_at
+  #     errors.add(:ends_at, "can't be in the past")
+  #   end
+  # end
   # # validates :bigger_then(:starts_at, :ends_at)
   #
   # #
