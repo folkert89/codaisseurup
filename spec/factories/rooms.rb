@@ -1,20 +1,20 @@
 FactoryBot.define do
-  factory :room do
-    home_type         "House"
-    room_type         "Shared"
-    accommodate       2
-    bedroom_count     2
-    bathroom_count    3
-    listing_name      { Faker::Lorem.words(3).join(' ') }
+  factory :event do
+    # listing_name      { Faker::Lorem.words(3).join(' ') }
+    name              "Basketball"
     description       { Faker::Lorem.sentence(40) }
-    address           { Faker::Address.city }
-    has_tv            true
-    has_kitchen       true
-    has_airco         true
-    has_heating       true
-    has_internet      true
+    location          { Faker::Address.city }
     price             { Faker::Commerce.price }
+    capacity          8
+    includes_food     false
+    includes_drinks   false
+    starts_at         Time.now
+    ends_at           2.days.from_now
+    # active            true
     user              { build(:user) }
+    categories        [modern_and_minimal, sleek_and_sophisticated]
+
+
 
     trait :active do
       active true
