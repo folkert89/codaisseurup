@@ -6,6 +6,12 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 500 }
   validates :starts_at, :ends_at, presence: true
+  def bargain?
+    price < 30
+  end
+  def self.order_by_price
+    order :price
+  end
   # validates :ends_at_cannot_be_in_the_pas
   #
   # private

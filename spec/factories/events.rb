@@ -1,18 +1,18 @@
 FactoryBot.define do
   factory :event do
     # listing_name      { Faker::Lorem.words(3).join(' ') }
-    name              "Basketball"
+    name              { Faker::Lorem.words(1) }
     description       { Faker::Lorem.sentence(40) }
     location          { Faker::Address.city }
     price             { Faker::Commerce.price }
-    capacity          8
+    capacity          100
     includes_food     false
     includes_drinks   false
-    starts_at         Time.now
-    ends_at           2.days.from_now
+    starts_at         { Faker::Date.forward(40) }
+    ends_at           { Faker::Date.forward(40) }
     # active            true
     user              { build(:user) }
-    categories        [modern_and_minimal, sleek_and_sophisticated]
+
 
 
 
