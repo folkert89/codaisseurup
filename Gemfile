@@ -46,6 +46,8 @@ gem 'rails_12factor', group: :production
 
 gem 'carrierwave', '0.11.2'
 
+gem 'cloudinary', '1.2.3'
+
 group :development, :test do
   # ...
   gem 'factory_bot_rails'
