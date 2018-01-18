@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Photo.destroy_all
+Category.destroy_all
 Event.destroy_all
+Profile.destroy_all
 User.destroy_all
 
 modern_and_minimal = Category.create(name: "Modern and Minimal")
@@ -21,7 +24,7 @@ miriam = User.create(email: "miriam@codaisseurbnb.com", password: "abcd1234")
 wouter = User.create(email: "wouter@codaisseurbnb.com", password: "abcd1234")
 matt = User.create(email: "matt@codaisseurbnb.com", password: "abcd1234")
 
-Event.create!(
+event1 = Event.create!(
   name:"Basketball",
   description:"You will never forget your stay!",
   location:"Amsterdam",
@@ -36,7 +39,7 @@ Event.create!(
   categories: [modern_and_minimal, sleek_and_sophisticated]
 )
 
-Event.create!(
+event2 = Event.create!(
   name:"Football",
   description:"You will never forget your stay!",
   location:"Rotterdam",
@@ -51,7 +54,7 @@ Event.create!(
   categories: [modern_and_minimal, white_washed]
 )
 
-Event.create!(
+event3 =Event.create!(
   name:"Bowling",
   description:"You will never forget your stay!",
   location:"Rotterdam",
@@ -65,3 +68,7 @@ Event.create!(
   user: matt,
   categories: [elegant_and_ornate, a_mans_touch]
 )
+
+photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/folkert89/image/upload/v1516279708/koffie.jpg", event: event1)
+photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/folkert89/image/upload/v1516279645/photo-1465188035480-cf3a60801ea5_zkaexq.jpg", event: event1)
+photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/folkert89/image/upload/v1516279610/wrev1ljvQ6KlfyljCQG0_lion_cya90z.jpg", event: event1)
