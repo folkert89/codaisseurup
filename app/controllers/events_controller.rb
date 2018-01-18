@@ -16,13 +16,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(room_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       image_params.each do |image|
         @event.photos.create(image: image)
       end
-      redirect_to edit_room_path(@event), notice: "Room created"
+      redirect_to edit_event_path(@event), notice: "event created"
     else
       render :new
     end
@@ -37,11 +37,11 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(room_params)
+    if @event.update(event_params)
       image_params.each do |image|
         @event.photos.create(image: image)
       end
-      redirect_to edit_room_path(@event), notice: "Room updated"
+      redirect_to edit_event_path(@event), notice: "event updated"
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class EventsController < ApplicationController
   def image_params
     params[:images].present? ? params.require(:images) : []
   end
-  def room_params
+  def event_params
     params
       .require(:event)
       .permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, category_ids: [])
