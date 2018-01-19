@@ -5,16 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Profile.destroy_all
+Booking.destroy_all
 Photo.destroy_all
 Category.destroy_all
 Event.destroy_all
-Profile.destroy_all
 User.destroy_all
 
 modern_and_minimal = Category.create(name: "Modern and Minimal")
 sleek_and_sophisticated = Category.create(name: "Sleek and Sophisticated")
 warm_and_cozy = Category.create(name: "Warm and Cozy")
-room_with_a_view = Category.create(name: "Room with a View")
+event_with_a_view = Category.create(name: "Room with a View")
 elegant_and_ornate = Category.create(name: "Elegant and Ornate")
 a_mans_touch = Category.create(name: "A Man's Touch")
 white_washed = Category.create(name: "White Washed")
@@ -72,3 +74,6 @@ event3 =Event.create!(
 photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/folkert89/image/upload/v1516279708/koffie.jpg", event: event1)
 photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/folkert89/image/upload/v1516279645/photo-1465188035480-cf3a60801ea5_zkaexq.jpg", event: event1)
 photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/folkert89/image/upload/v1516279610/wrev1ljvQ6KlfyljCQG0_lion_cya90z.jpg", event: event1)
+
+Booking.create!(event: event1, user: wouter, total: 100, starts_at: 10.days.from_now, ends_at: 12.days.from_now)
+Booking.create!(event: event1, user: matt, total: 200, starts_at: 20.days.from_now, ends_at: 24.days.from_now)

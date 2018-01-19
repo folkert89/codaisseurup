@@ -19,18 +19,12 @@
 <div class="container-fluid bg-3 text-center">
   <h3 class="margin">How does it work?</h3><br>
   <div class="row">
-    <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="<%=image_path('emoticon.png')%>" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="<%=image_path('lion.png')%>" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <img src="<%=image_path('question.png')%>" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
+    <% @photos.each do |photo| %>
+      <div class="col-sm-4">
+        <p><%=photo.event.description%></p>
+        <%=image_tag photo.image, class: "img-responsive margin"%>
+      </div>
+    <%end%>
   </div>
 </div>
 
@@ -38,3 +32,4 @@
 <footer class="container-fluid bg-4 text-center">
   <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p>
 </footer>
+<!--class: img-responsive marginstyle="width:100%" alt="Image"-->
