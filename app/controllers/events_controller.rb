@@ -11,6 +11,8 @@ class EventsController < ApplicationController
     @photos = @event.photos
   end
 
+
+
   def new
     @event = current_user.events.build
   end
